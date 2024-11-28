@@ -24,7 +24,7 @@ if(isValid) {
     return next();
 }
 
-return res.send({
+return res.status(400).json({
     error: {
         message: `Invalid Payload: ${ajv.errorsText(validate.errors)}`,
     },
