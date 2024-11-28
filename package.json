@@ -1,0 +1,40 @@
+{
+  "name": "waytogrow-api",
+  "version": "1.0.0",
+  "description": "waytogrow myfirstapp",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lis-Mach/waytogrow-api.git"
+  },
+  "keywords": [
+    "way",
+    "to",
+    "grow",
+    "it",
+    "developer",
+    "tester"
+  ],
+  "author": "Sylwia Lis-Mach",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lis-Mach/waytogrow-api/issues"
+  },
+  "homepage": "https://github.com/Lis-Mach/waytogrow-api#readme",
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.2.0",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.11.0",
+    "prettier": "^3.3.3",
+    "sequelize": "^6.37.3"
+  }
+}
