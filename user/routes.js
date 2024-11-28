@@ -20,7 +20,7 @@ const updateUserPayload = require("./schemas/updateUserPayload");
 
 router.get("/", 
   [
-    // IsAuthenticatedMiddleware.check
+    IsAuthenticatedMiddleware.check
   ], 
   userController.findUser
 );
