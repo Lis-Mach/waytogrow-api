@@ -6,6 +6,9 @@ properties: {
     title: {
         type: "string",
     },
+        description: {
+            type: "string",
+        }
 },
 additionalProperties:false,
 };

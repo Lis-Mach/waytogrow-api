@@ -1,5 +1,5 @@
 //  created/deleted plan endpoint accessible for user
-
+const path = require('path');
 const PlanModel = require("../../common/models/plan");
 
 module.exports = {
@@ -89,6 +89,50 @@ module.exports = {
           status: true,
           data: plan,
         });
+      })
+      .catch((errorr) => {
+        return res.status(500).json({
+          status: false,
+          error: errorr,
+        });
+      });
+  },
+
+  updatePlanImage: (req, res) => {
+    const {
+      params: { planId },
+      user: { userId },
+      file : { path } ,
+    } = req;
+
+    PlanModel.updatePlan({ id: planId, user_id: userId }, {image: path})
+      .then(() => {
+        return PlanModel.findPlan({ id: planId });
+      })
+      .then((plan) => {
+        res.status(200).json({
+          status: true,
+          data: plan,
+        });
+      })
+      .catch((errorr) => {
+        return res.status(500).json({
+          status: false,
+          error: errorr,
+        });
+      });
+  },
+
+  getPlanImage: (req, res) => {
+    const {
+      params: { planId },
+      user: { userId }
+    } = req;
+
+    PlanModel.findPlan({ id: planId })
+      .then((plan) => {
+        const filePath = plan.image;
+        res.status(200).download(filePath);
       })
       .catch((errorr) => {
         return res.status(500).json({

@@ -22,6 +22,14 @@ const PlanModel = {
       key: "id",
     },
   },
+  description: {
+      type: DataTypes.STRING,
+      allowNull: true,
+  },
+  image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+  },
 };
 
 module.exports = {
@@ -44,6 +52,7 @@ module.exports = {
       where: query,
     });
   },
+  
   deletePlan: (query) => {
     return this.model.destroy({
       where: query,

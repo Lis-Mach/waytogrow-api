@@ -1,5 +1,4 @@
 //Created delete plan endpoint accessible for users.
-
 const router=require("express").Router();
 
 //controller imports 
@@ -19,8 +18,7 @@ const updateStepPayload=require('../step/schemas/updateStepPayload.js');
 const {roles}= require('../config');
 const CheckPlanOwnerMiddleware = require("../common/middlewares/CheckPlanOwnerMiddleware.js");
 const plan = require("../common/models/plan.js");
-
-
+const uploadMiddleware = require("../common/middlewares/UploadFileMiddleware.js")
 
 router.get(
     "/",
@@ -60,6 +58,30 @@ router.put(
     ],
     PlanController.updatePlan
 );
+
+router.put(
+    "/:planId/image",
+    [
+        IsAuthenticatedMiddleware.check,
+        CheckPermissionMiddleware.has(roles.USER),
+        SchemaValidationMiddleware.verify(updatePlanPayload),
+        CheckPlanOwnerMiddleware.has,
+        uploadMiddleware.uploadMiddleware
+    ],
+    PlanController.updatePlanImage
+);
+
+router.get(
+    '/:planId/image', 
+    [
+        IsAuthenticatedMiddleware.check,
+        CheckPermissionMiddleware.has(roles.USER),
+        SchemaValidationMiddleware.verify(updatePlanPayload),
+        CheckPlanOwnerMiddleware.has
+    ],
+    PlanController.getPlanImage
+);
+
 
 router.delete(
     "/:planId",

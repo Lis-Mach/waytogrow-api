@@ -22,7 +22,6 @@ const UserModel = require("./common/models/user"); //sequelize model imports
 const StepModel = require("./common/models/step");
 const PlanModel = require("./common/models/plan");
 
-
 const sequelize = new Sequelize("WayToGrow", "root", "", {
   host: "localhost",
   dialect: "mysql",
