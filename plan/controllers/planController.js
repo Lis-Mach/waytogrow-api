@@ -135,7 +135,7 @@ module.exports = {
         res.status(200).download(filePath);
       })
       .catch((errorr) => {
-        return res.status(500).json({
+        return res.status(404).json({
           status: false,
           error: errorr,
         });
