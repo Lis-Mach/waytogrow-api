@@ -1,14 +1,17 @@
-//Created another plan endpoint 
+//Created another plan endpoint
 
-module.exports={
-type: "object",
-properties: {
+module.exports = {
+  type: "object",
+  properties: {
     title: {
-        type: "string",
+      type: "string",
     },
-        description: {
-            type: "string",
-        }
-},
-additionalProperties:false,
+    description: {
+      type: "string",
+    },
+    image: {
+        type: "string",
+    }
+  },
+  additionalProperties: false,
 };

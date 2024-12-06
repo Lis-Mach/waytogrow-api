@@ -9,8 +9,11 @@ module.exports={
         },
         description: {
             type: "string",
+        },
+        image: {
+            type: "string",
         }
     },
 
-    additionalProperties:false,
+    additionalProperties:true,
     };

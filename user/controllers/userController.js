@@ -13,7 +13,7 @@ module.exports = {
       .then((user) => {
         return res.status(200).json({
           status: true,
-          data: user,
+           data: user,
         });
       })
 
@@ -50,7 +50,7 @@ module.exports = {
       .then((user) => {
         return res.status(200).json({
           status: true,
-          data: user,
+           data: user,
         });
       })
       .catch((errorr) => {
