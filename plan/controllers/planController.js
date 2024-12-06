@@ -1,14 +1,14 @@
 //  created/deleted plan endpoint accessible for user
-const path = require('path');
+const path = require("path");
 const PlanModel = require("../../common/models/plan");
 
 module.exports = {
   getAllPlans: (req, res) => {
     const {
-    user: { userId },
+      user: { userId },
     } = req;
 
-    PlanModel.findAllPlans({user_id: userId })   
+    PlanModel.findAllPlans({ user_id: userId })
       .then((plans) => {
         return res.status(200).json({
           status: true,
@@ -17,7 +17,7 @@ module.exports = {
       })
       .catch((errorr) => {
         return res.status(500).json({
-          status: false, 
+          status: false,
           error: errorr,
         });
       });
@@ -29,7 +29,7 @@ module.exports = {
       params: { planId },
     } = req;
 
-    PlanModel.findPlan({ user_id: userId, id : planId })
+    PlanModel.findPlan({ user_id: userId, id: planId })
       .then((plan) => {
         return res.status(200).json({
           status: true,
@@ -45,14 +45,18 @@ module.exports = {
   },
 
   createPlan: (req, res) => {
-    const { body } = req;
-
-    PlanModel.createPlan(body)
+    const {
+      user: { userId },
+      body: payload,
+    } = req;
+    payload.user_id = userId; 
+    console.log(payload)
+    
+    PlanModel.createPlan(payload)
       .then((plan) => {
-        return res.status(200).json({
-          status: true,
-          data: plan,
-        });
+        return res.status(200).json(
+           plan,
+        );
       })
       .catch((errorr) => {
         return res.status(500).json({
@@ -102,10 +106,10 @@ module.exports = {
     const {
       params: { planId },
       user: { userId },
-      file : { path } ,
+      file: { path },
     } = req;
 
-    PlanModel.updatePlan({ id: planId, user_id: userId }, {image: path})
+    PlanModel.updatePlan({ id: planId, user_id: userId }, { image: path })
       .then(() => {
         return PlanModel.findPlan({ id: planId });
       })
@@ -126,7 +130,7 @@ module.exports = {
   getPlanImage: (req, res) => {
     const {
       params: { planId },
-      user: { userId }
+      user: { userId },
     } = req;
 
     PlanModel.findPlan({ id: planId })
@@ -144,11 +148,11 @@ module.exports = {
 
   deletePlan: (req, res) => {
     const {
-     params:  { planId },
-     user: { userId }
+      params: { planId },
+      user: { userId },
     } = req;
 
-    PlanModel.deletePlan({ id: planId, user_id: userId})
+    PlanModel.deletePlan({ id: planId, user_id: userId })
       .then(() => {
         return res.status(200).json({
           status: true,
