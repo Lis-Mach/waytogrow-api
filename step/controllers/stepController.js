@@ -5,8 +5,8 @@ const StepModel = require("../../common/models/step");
 module.exports = {
   getAllSteps: (req, res) => {
     const {
-        params:  { planId },
-       } = req;
+      params: { planId },
+    } = req;
 
     StepModel.findAllSteps({ plan_id: planId })
       .then((steps) => {
@@ -25,10 +25,10 @@ module.exports = {
 
   getStepById: (req, res) => {
     const {
-      params: { planId, stepId }
+      params: { planId, stepId },
     } = req;
 
-    StepModel.findStep({ plan_id: planId, id: stepId})
+    StepModel.findStep({ plan_id: planId, id: stepId })
       .then((step) => {
         return res.status(200).json({
           status: true,
@@ -44,14 +44,14 @@ module.exports = {
   },
 
   createStep: (req, res) => {
-    const { 
-        body,
-        params: { planId }
-     } = req;
+    const {
+      body,
+      params: { planId },
+    } = req;
 
-     body.plan_id= planId
+    body.plan_id = planId;
 
-     console.log(body)
+    console.log(body);
     StepModel.createStep(body)
       .then((step) => {
         return res.status(200).json({
@@ -83,7 +83,7 @@ module.exports = {
       });
     }
 
-    StepModel.updateStep({ plan_id: planId, id: stepId}, payload)
+    StepModel.updateStep({ plan_id: planId, id: stepId }, payload)
       .then(() => {
         return StepModel.findStep({ id: stepId });
       })
@@ -103,8 +103,8 @@ module.exports = {
 
   deteleStep: (req, res) => {
     const {
-        params: { planId, stepId }
-      } = req;
+      params: { planId, stepId },
+    } = req;
 
     StepModel.deleteStep({ plan_id: planId, id: stepId })
       .then(() => {

@@ -23,12 +23,12 @@ const PlanModel = {
     },
   },
   description: {
-      type: DataTypes.STRING,
-      allowNull: true,
+    type: DataTypes.STRING,
+    allowNull: true,
   },
   image: {
-      type: DataTypes.STRING,
-      allowNull: true,
+    type: DataTypes.STRING,
+    allowNull: true,
   },
 };
 
@@ -52,14 +52,14 @@ module.exports = {
       where: query,
     });
   },
-  
+
   deletePlan: (query) => {
     return this.model.destroy({
       where: query,
     });
   },
 
-findAllPlans: (query) => {
+  findAllPlans: (query) => {
     return this.model.findAll({
       where: query,
     });

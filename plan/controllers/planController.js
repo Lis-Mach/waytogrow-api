@@ -49,14 +49,12 @@ module.exports = {
       user: { userId },
       body: payload,
     } = req;
-    payload.user_id = userId; 
-    console.log(payload)
-    
+    payload.user_id = userId;
+    console.log(payload);
+
     PlanModel.createPlan(payload)
       .then((plan) => {
-        return res.status(200).json(
-           plan,
-        );
+        return res.status(200).json(plan);
       })
       .catch((errorr) => {
         return res.status(500).json({

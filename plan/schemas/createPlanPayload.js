@@ -10,8 +10,8 @@ module.exports = {
       type: "string",
     },
     image: {
-        type: "string",
-    }
+      type: "string",
+    },
   },
   additionalProperties: true,
 };

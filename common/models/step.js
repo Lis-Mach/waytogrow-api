@@ -16,7 +16,7 @@ const StepModel = {
   plan_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    references: { 
+    references: {
       model: PlanModel,
       key: "id",
     },
@@ -29,16 +29,15 @@ const StepModel = {
     type: DataTypes.STRING,
     allowNull: true,
   },
-  description: {
-    type: DataTypes.STRING,
-    allowNull: true,
+  status: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
   },
 };
 
 module.exports = {
   initialise: (sequelize) => {
-    this.model = sequelize.define("step", StepModel, 
-    );
+    this.model = sequelize.define("step", StepModel);
   },
 
   createStep: (step) => {

@@ -1,4 +1,3 @@
-
 //Added the ability to filter users by query and delete or change the user role by the admin
 
 const UserModel = require("./../../common/models/user");
@@ -13,7 +12,7 @@ module.exports = {
       .then((user) => {
         return res.status(200).json({
           status: true,
-           data: user,
+          data: user,
         });
       })
 
@@ -23,7 +22,7 @@ module.exports = {
           error: errorr,
         });
       });
-  }, 
+  },
 
   updateUser: (req, res) => {
     const {
@@ -31,7 +30,7 @@ module.exports = {
       body: payload,
     } = req;
 
-    console.log(req.user)
+    console.log(req.user);
 
     //if body is empty, update is not needed
     if (!Object.keys(payload).length) {
@@ -50,7 +49,7 @@ module.exports = {
       .then((user) => {
         return res.status(200).json({
           status: true,
-           data: user,
+          data: user,
         });
       })
       .catch((errorr) => {
@@ -63,12 +62,11 @@ module.exports = {
 
   deleteUser: (req, res) => {
     const {
-      params: { userId }
+      params: { userId },
     } = req;
     console.log(req);
 
-
-    UserModel.deleteUser({ id: userId})
+    UserModel.deleteUser({ id: userId })
       .then(() => {
         return res.status(200).json({
           status: true,
@@ -119,7 +117,7 @@ module.exports = {
         });
       })
       .catch((errorr) => {
-        console.log(errorr)
+        console.log(errorr);
         return res.status(500).json({
           status: false,
           error: errorr,

@@ -18,11 +18,12 @@ const changeUserPayload = require("./schemas/updateUserPayload");
 const { roles } = require("../config");
 const updateUserPayload = require("./schemas/updateUserPayload");
 
-router.get("/", 
+router.get(
+  "/",
   [
     IsAuthenticatedMiddleware.check,
-    SchemaValidationMiddleware.verify(updateUserPayload)
-  ], 
+    SchemaValidationMiddleware.verify(updateUserPayload),
+  ],
   userController.findUser
 );
 
@@ -38,9 +39,9 @@ router.put(
 router.get(
   "/all",
   [
-    // IsAuthenticatedMiddleware.check, 
+    // IsAuthenticatedMiddleware.check,
     // CheckPermissionMiddleware.has(roles.ADMIN)
-    ],
+  ],
   userController.getAllUsers
 );
 
@@ -56,9 +57,7 @@ router.patch(
 
 router.delete(
   "/:userId",
-  [
-    IsAuthenticatedMiddleware.check, 
-    CheckPermissionMiddleware.has(roles.ADMIN)],
+  [IsAuthenticatedMiddleware.check, CheckPermissionMiddleware.has(roles.ADMIN)],
   userController.deleteUser
 );
 

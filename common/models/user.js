@@ -56,7 +56,7 @@ module.exports = {
   },
 
   updateUser: (query, updatedValue) => {
-    console.log(updatedValue)
+    console.log(updatedValue);
     return this.model.update(updatedValue, {
       where: query,
     });

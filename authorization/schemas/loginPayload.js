@@ -1,18 +1,13 @@
-
-module.exports={
-type: 'object',
-properties: {
+module.exports = {
+  type: "object",
+  properties: {
     login: {
-        type: 'string'
+      type: "string",
     },
     password: {
-type: 'string'
+      type: "string",
     },
-},
-required: 
-[
-    'login',
-    'password'
-],
-additionalProperties: false
+  },
+  required: ["login", "password"],
+  additionalProperties: false,
 };
