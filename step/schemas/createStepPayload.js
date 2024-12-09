@@ -17,5 +17,5 @@ module.exports = {
       type: "boolean",
     },
   },
-  additionalProperties: false,
+  additionalProperties: true,
 };
