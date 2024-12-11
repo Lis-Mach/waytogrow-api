@@ -39,8 +39,8 @@ router.put(
 router.get(
   "/all",
   [
-    // IsAuthenticatedMiddleware.check,
-    // CheckPermissionMiddleware.has(roles.ADMIN)
+    IsAuthenticatedMiddleware.check,
+    CheckPermissionMiddleware.has(roles.ADMIN)
   ],
   userController.getAllUsers
 );

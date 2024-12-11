@@ -29,6 +29,7 @@ const UserModel = {
   password: {
     type: DataTypes.STRING,
     allowNull: false,
+    
   },
   role: {
     type: DataTypes.STRING,

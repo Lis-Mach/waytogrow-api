@@ -12,7 +12,13 @@ module.exports = {
       .then((user) => {
         return res.status(200).json({
           status: true,
-          data: user,
+          data: {
+            id: user.id,
+            name: user.name,
+            surname: user.surname,
+            login: user.login,
+            email: user.email,
+          },
         });
       })
 
@@ -30,7 +36,7 @@ module.exports = {
       body: payload,
     } = req;
 
-    console.log(req.user);
+   
 
     //if body is empty, update is not needed
     if (!Object.keys(payload).length) {
@@ -49,7 +55,13 @@ module.exports = {
       .then((user) => {
         return res.status(200).json({
           status: true,
-          data: user,
+          data: {
+            id: user.id,
+            name: user.name,
+            surname: user.surname,
+            login: user.login,
+            email: user.email,
+          }
         });
       })
       .catch((errorr) => {
