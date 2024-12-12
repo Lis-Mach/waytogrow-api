@@ -23,7 +23,7 @@ module.exports = {
       })
 
       .catch((errorr) => {
-        return res.status(500).json({
+        return res.status(404).json({
           status: false,
           error: errorr,
         });
@@ -36,7 +36,6 @@ module.exports = {
       body: payload,
     } = req;
 
-   
 
     //if body is empty, update is not needed
     if (!Object.keys(payload).length) {
@@ -53,7 +52,7 @@ module.exports = {
         return UserModel.findUser({ id: userId });
       })
       .then((user) => {
-        return res.status(200).json({
+        return res.status(201).json({
           status: true,
           data: {
             id: user.id,
@@ -65,7 +64,7 @@ module.exports = {
         });
       })
       .catch((errorr) => {
-        return res.status(500).json({
+        return res.status(400).json({
           status: false,
           error: errorr,
         });
@@ -88,7 +87,7 @@ module.exports = {
         });
       })
       .catch((errorr) => {
-        return res.status.json({
+        return res.status(404).json({
           status: false,
           error: errorr,
         });
@@ -104,7 +103,7 @@ module.exports = {
         });
       })
       .catch((errorr) => {
-        return res.status(500).json({
+        return res.status(404).json({
           status: false,
           error: errorr,
         });
@@ -116,21 +115,20 @@ module.exports = {
       params: { userId },
       body: { role },
     } = req;
-    console.log(role);
 
     UserModel.updateUser({ id: userId }, { role: role })
       .then(() => {
         return UserModel.findUser({ id: userId });
       })
       .then((user) => {
-        return res.status(200).json({
+        return res.status(201).json({
           status: true,
           data: user,
         });
       })
       .catch((errorr) => {
         console.log(errorr);
-        return res.status(500).json({
+        return res.status(400).json({
           status: false,
           error: errorr,
         });

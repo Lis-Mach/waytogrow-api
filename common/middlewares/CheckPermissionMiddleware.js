@@ -17,13 +17,12 @@ module.exports = {
       // } = req
 
       UserModel.findUser({ id: userId }).then((user) => {
-        // console.log(util.inspect(req, {showHidden: false, depth: null, colors: true}))
 
         console.log(`userid to jest : ${userId}`);
         // IF user does not exist in our database, means something is wrong
         // THEN we will return forbidden error and ask user to login again
         if (!user) {
-          return res.status(403).json({
+          return res.status(401).json({
             error: "Invalid access token provided, please login again.",
           });
         }

@@ -57,7 +57,7 @@ router.patch(
 
 router.delete(
   "/:userId",
-  [IsAuthenticatedMiddleware.check, CheckPermissionMiddleware.has(roles.ADMIN)],
+  [IsAuthenticatedMiddleware.check, CheckPermissionMiddleware.has(roles.USER)],
   userController.deleteUser
 );
 

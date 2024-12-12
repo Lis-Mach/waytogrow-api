@@ -16,7 +16,7 @@ module.exports = {
         });
       })
       .catch((errorr) => {
-        return res.status(500).json({
+        return res.status(404).json({
           status: false,
           error: errorr,
         });
@@ -36,7 +36,7 @@ module.exports = {
         });
       })
       .catch((errorr) => {
-        return res.status(500).json({
+        return res.status(404).json({
           status: false,
           error: errorr,
         });
@@ -50,17 +50,18 @@ module.exports = {
     } = req;
 
     body.plan_id = planId;
-
     console.log(body);
+
+  
     StepModel.createStep(body)
       .then((step) => {
-        return res.status(200).json({
+        return res.status(201).json({
           status: true,
           data: step,
         });
       })
       .catch((errorr) => {
-        return res.status(500).json({
+        return res.status(400).json({
           status: false,
           error: errorr,
         });
@@ -88,13 +89,13 @@ module.exports = {
         return StepModel.findStep({ id: stepId });
       })
       .then((step) => {
-        res.status(200).json({
+        res.status(201).json({
           status: true,
           data: step,
         });
       })
       .catch((errorr) => {
-        return res.status(500).json({
+        return res.status(400).json({
           status: false,
           error: errorr,
         });
@@ -116,7 +117,7 @@ module.exports = {
         });
       })
       .catch((errorr) => {
-        return res.status(500).json({
+        return res.status(404).json({
           status: false,
           error: errorr,
         });

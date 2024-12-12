@@ -10,8 +10,8 @@ const AuthorizationRoutes = require("./authorization/routes");
 const UserRoutes = require("./user/routes");
 const PlanRoutes = require("./plan/routes");
 
-app.use(morgan("tiny")); //To setup your middleware,
-//you can invoke app.use(<specific_middleware_layer_here>) for every middleware layer that you want to add
+app.use(morgan("tiny")); //To setup middleware,
+//by invoke app.use(<specific_middleware_layer_here>) for every middleware layer that is needed to add
 app.use(cors());
 app.use(Express.json()); //set up Express to create an app and configure it to parse requests with JSON payloads.
 

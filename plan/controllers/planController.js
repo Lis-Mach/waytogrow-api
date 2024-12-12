@@ -16,7 +16,7 @@ module.exports = {
         });
       })
       .catch((errorr) => {
-        return res.status(500).json({
+        return res.status(404).json({
           status: false,
           error: errorr,
         });
@@ -37,7 +37,7 @@ module.exports = {
         });
       })
       .catch((errorr) => {
-        return res.status(500).json({
+        return res.status(404).json({
           status: false,
           error: errorr,
         });
@@ -54,10 +54,10 @@ module.exports = {
 
     PlanModel.createPlan(payload)
       .then((plan) => {
-        return res.status(200).json(plan);
+        return res.status(201).json(plan);
       })
       .catch((errorr) => {
-        return res.status(500).json({
+        return res.status(400).json({
           status: false,
           error: errorr,
         });
@@ -87,13 +87,13 @@ module.exports = {
         return PlanModel.findPlan({ id: planId });
       })
       .then((plan) => {
-        res.status(200).json({
+        res.status(201).json({
           status: true,
           data: plan,
         });
       })
       .catch((errorr) => {
-        return res.status(500).json({
+        return res.status(400).json({
           status: false,
           error: errorr,
         });
@@ -112,13 +112,13 @@ module.exports = {
         return PlanModel.findPlan({ id: planId });
       })
       .then((plan) => {
-        res.status(200).json({
+        res.status(201).json({
           status: true,
           data: plan,
         });
       })
       .catch((errorr) => {
-        return res.status(500).json({
+        return res.status(400).json({
           status: false,
           error: errorr,
         });
@@ -160,7 +160,7 @@ module.exports = {
         });
       })
       .catch((errorr) => {
-        return res.status(500).json({
+        return res.status(404).json({
           status: false,
           error: errorr,
         });

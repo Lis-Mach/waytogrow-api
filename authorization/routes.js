@@ -3,7 +3,7 @@ const router = require("express").Router();
 //Controller import
 const AuthorizationController = require("./controllers/AuthorizationController");
 
-//Middleware imoprt
+//Middleware import
 const SchemaValidationMiddleware = require("../common/middlewares/SchemaValidationMiddleware");
 
 //JSON Schema Import for Payload veryfication
